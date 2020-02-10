@@ -1,22 +1,24 @@
 ;;;; srfi-88.lisp
 
-(cl:in-package :srfi-88.internal)
-;; (in-readtable :srfi-88)
+(cl:in-package "https://github.com/g000001/srfi-88#internals")
 
-(def-suite srfi-88)
 
-(in-suite srfi-88)
+(def-suite* srfi-88)
+
 
 (declaim (inline keyword?))
 (defun keyword? (obj)
   (cl:keywordp obj))
 
+
 (defun keyword->string (k)
   (cl:string k))
+
 
 (defun string->keyword (x)
   (assert (stringp x))
   (values (cl:intern x :keyword)))
+
 
 (macrolet ((tst (&body clauses)
              (do ((*gensym-counter* 0)
@@ -43,4 +45,5 @@
    (string->keyword "foo")             ==>  :|foo|
    (string->keyword "")                ==>  (values :||)))
 
-;;; eof
+
+;;; *EOF*

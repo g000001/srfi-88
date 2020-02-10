@@ -1,12 +1,19 @@
 ;;;; package.lisp
 
-(cl:in-package :cl-user)
+(cl:in-package cl-user)
 
-(defpackage :srfi-88
+
+(defpackage "https://github.com/g000001/srfi-88"
   (:use)
-  (:export :keyword?
-           :keyword->string
-           :string->keyword))
+  (:export keyword?
+           keyword->string
+           string->keyword))
 
-(defpackage :srfi-88.internal
-  (:use :srfi-88 :cl :fiveam))
+
+(defpackage "https://github.com/g000001/srfi-88#internals"
+  (:use "https://github.com/g000001/srfi-88"
+        cl
+        fiveam))
+
+
+;;; *EOF*
